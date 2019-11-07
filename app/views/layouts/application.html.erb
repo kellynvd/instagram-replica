@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>InstagramReplica</title>
+    <title>Instagramm</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,11 @@
   </head>
 
   <body>
+    <% flash.each do |name, msg| %>
+        <% content_tag(:div, msg, class: 'alert alert-info') %>
+      <% end %>
+
     <%= yield %>
+
   </body>
 </html>
