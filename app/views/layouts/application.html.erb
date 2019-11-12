@@ -10,11 +10,33 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-inverse">
+      <div clas="container">
+        <div class="navbar-brand">
+          <%= link_to 'Instagramm', root_path  %>
+        </div>
+          <% if user_signed_in? %>
+            <ul class="nav navbar-nav navbar-left">
+              <li><%= link_to 'Gram It', new_pic_path %></li>
+              <li><%= link_to 'Settings', edit_user_registration_path %></li>
+              <li><%= link_to 'Gram It',  destroy_user_session_path, method: :delete %></li>
+            </ul>
+            <% else %>
+              <ul class="nav navbar-nav navbar-left">
+                <li><%= link_to 'Join', new_user_registration_path %></li>
+                <li><%= link_to 'Log In', new_user_session_path %></li>
+              </ul>
+          <% end %>
+      </div>
+    </nav>
+
+  <div class="container">
     <% flash.each do |name, msg| %>
         <% content_tag(:div, msg, class: 'alert alert-info') %>
       <% end %>
 
     <%= yield %>
 
+  </div>
   </body>
 </html>
