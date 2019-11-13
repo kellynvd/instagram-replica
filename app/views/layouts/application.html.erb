@@ -19,12 +19,12 @@
             <ul class="nav navbar-nav navbar-left">
               <li><%= link_to 'Gram It', new_pic_path %></li>
               <li><%= link_to 'Settings', edit_user_registration_path %></li>
-              <li><%= link_to 'Gram It',  destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to 'Sign Out',  destroy_user_session_path, method: :delete %></li>
             </ul>
             <% else %>
               <ul class="nav navbar-nav navbar-left">
                 <li><%= link_to 'Join', new_user_registration_path %></li>
-                <li><%= link_to 'Log In', new_user_session_path %></li>
+                <li><%= link_to 'Sign In', new_user_session_path %></li>
               </ul>
           <% end %>
       </div>

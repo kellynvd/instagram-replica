@@ -7,6 +7,10 @@
       </div>
 
       <div class="panel-body">
+        <div class="current_image">
+          <strong>Right Now</strong>
+          <%= image_tag @pic.image.url(:medium) %>
+        </div>
         <%= render 'form' %>
       </div>
 
