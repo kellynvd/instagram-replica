@@ -17,3 +17,4 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 //= require jquery
 //= require bootstrap-sprockets
+//= require masonry/jquery.masonry

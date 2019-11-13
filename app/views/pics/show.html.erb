@@ -1,8 +1,29 @@
-<%= image_tag @pic.image.url %>
-<h1><%= @pic.title %><h1>
-<p><%= @pic.description %></p>
-<p><%= @pic.user.email %></p>
+<div id="pic_show" class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
 
-<%= link_to 'Back', root_path %>
-<%= link_to 'Edit', edit_pic_path %>
-<%= link_to 'Delete', pic_path, method: :delete, data: { confirm: 'Are you sure' } %>
+      <div class="panel heading pic_image">
+        <%= image_tag @pic.image.url %>
+      </div>
+
+      <div class="panel-body">
+        <h1><%= @pic.title %><h1>
+        <p><%= @pic.description %></p>
+      </div>
+
+      <div class="panel-footer">
+        <div class="row">
+          <p class="user"><%= @pic.user.email %></p>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="btn-group pull-right">
+          <%= link_to 'Edit', edit_pic_path, class: 'btn btn-info' %>
+          <%= link_to 'Delete', pic_path, method: :delete, data: { confirm: 'Are you sure' }, class: 'btn btn-danger' %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
