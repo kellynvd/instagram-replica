@@ -1,6 +1,7 @@
 class PicsController < ApplicationController
   before_action :find_pic, only: %i[show edit update destroy upvote]
   before_action :authenticate_user!, except: %i[index show]
+  before_action :correct_user, only: %i[edit update destroy]
 
   def index
     @pics = Pic.all.order('created_at DESC')
@@ -45,6 +46,11 @@ class PicsController < ApplicationController
   end
 
   private
+
+  def correct_user
+    flash[:notice] = 'Access denied as you are not owner of this Pic'
+    redirect_to @pic if current_user != @pic.user
+  end
 
   def find_pic
     @pic = Pic.find(params[:id])
