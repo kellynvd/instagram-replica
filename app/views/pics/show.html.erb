@@ -12,22 +12,26 @@
       </div>
 
       <div class="panel-footer">
+
         <div class="row">
-          <p class="user"><%= @pic.user.email %></p>
+
+          <div class="col-md-6">
+            <p class="user">By<%= @pic.user.email %></p>
+          </div>
+
+          <div class="col-md-6">
+            <div class="btn-group pull-right">
+              <%= link_to like_pic_path(@pic), method: :put, class: 'btn btn-danger' do %>
+                  <span class="glyphicon glyphicon-heart"> <span>
+                  <%= @pic.get_upvotes.size %>
+                <% end %>
+              <%= link_to 'Edit', edit_pic_path, class: 'btn btn-info' %>
+              <%= link_to 'Delete', pic_path, method: :delete, data: { confirm: 'Are you sure' }, class: 'btn btn-danger' %>
+            </div>
+          </div>
+
         </div>
       </div>
-
-      <div class="col-md-6">
-        <div class="btn-group pull-right">
-          <%= link_to like_pic_path(@pic), method: :put, class: 'btn btn-danger' do %>
-              <span class="glyphicon glyphicon-heart"> <span>
-              <%= @pic.get_upvotes.size %>
-            <% end %>
-          <%= link_to 'Edit', edit_pic_path, class: 'btn btn-info' %>
-          <%= link_to 'Delete', pic_path, method: :delete, data: { confirm: 'Are you sure' }, class: 'btn btn-danger' %>
-        </div>
-      </div>
-
     </div>
   </div>
 </div>
